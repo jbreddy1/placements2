@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Document Management</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+        }
+
+
+        #documentList {
+            margin-top: 20px;
+        }
+
+
+        .document-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <h2 class="text-center mb-4">Document Management</h2>
+    <form id="documentForm" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="documentFile">Select Document:</label>
+            <input type="file" class="form-control-file" id="documentFile" accept=".pdf, .doc, .docx" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Upload Document</button>
+<a class="btn btn-primary" href="aftrLogin.html" role="button">submit</a>
+
+
+    </form>
+
+
+    <div id="documentList">
+        <h4 class="mt-4">Uploaded Documents:</h4>
+        <ul id="documentItems" class="list-group">
+            <!-- Document items will be dynamically added here -->
+        </ul>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script>
+    document.getElementById('documentForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+
+        // Retrieve selected document file
+        var documentFile = document.getElementById('documentFile').files[0];
+
+
+        // TODO: Handle the document file (e.g., upload to server, store in a database)
+
+
+        // For demonstration purposes, we'll simply add the document to the list
+        addDocumentToList(documentFile.name);
+    });
+
+
+    function addDocumentToList(documentName) {
+        var documentItems = document.getElementById('documentItems');
+
+
+        // Create a list item for the document
+        var listItem = document.createElement('li');
+        listItem.className = 'list-group-item document-item';
+        listItem.textContent = documentName;
+
+
+        // Append the list item to the document list
+        documentItems.appendChild(listItem);
+    }
+</script>
+
+
+</body>
+</html>
+
+
+
